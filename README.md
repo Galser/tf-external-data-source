@@ -5,7 +5,7 @@ Repository dedicated to a small test of the Terraform External Data Source.
 
 # Intro
 
-The external data source allows an external program to be called from Terraform during state refresh implementing a specific protocol (JSON communication + an error exit in the case of no-success)
+The external data source allows an external program to be called from Terraform during state refresh implementing a specific protocol (JSON communication + an error exit in the case of no success)
 
 
 # TF Code
@@ -40,9 +40,9 @@ resource "null_resource" "animal-echo" {
 
 # External program (e.g. Data Source) code
 
-Simple programm in Python3 that is using built-in data , but could be extended to rad that from some source, not avaible normally for Terraform.
+Simple program in Python3 that is using built-in data, but could be extended to read that from some source, not available normally for Terraform.
 
-This expect to read JSON from `STDIN` and produce a resulting response as valids JSON map to `STDOUT`.
+This expects to read JSON from `STDIN` and produce a resulting response as valid JSON map to `STDOUT`.
 In case of the fail - it should error and produce **one-line error**
 
 As of now - JSON arrays in response are not supported ( 27/12/2021 )
@@ -151,10 +151,10 @@ null_resource.animal-echo: Creation complete after 0s [id=2656677041203394027]
 Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 ```
 
-Seems to be valid, we goit in return cat Tom, rather traditional name for a feline character
+Seems to be valid, we got in return cat Tom, rather a traditional name for a feline character
 
 
-How about if we requesat some gibberish ? What will error look like? 
+How about if we request some gibberish? What will error look like? 
 
 ```Terraform
 terraform apply --auto-approve -var="animal=sd"
@@ -176,4 +176,4 @@ terraform apply --auto-approve -var="animal=sd"
 
 - [x] make basic code
 - [x] test it
-- [ ] update readme
+- [x] update readme
